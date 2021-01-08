@@ -1,2 +1,0 @@
-# portfolio
-OKJ portfóloó
