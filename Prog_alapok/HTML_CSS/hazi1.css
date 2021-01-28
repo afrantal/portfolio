@@ -1,0 +1,38 @@
+p {
+	text-indent: 32px ;
+  }
+
+#elso {
+	background-color: white;
+	font-variant: small-caps;
+	}
+
+#masodik {
+	background-color: white;
+	text-decoration: underline;
+	}
+
+#harmadik {
+	background-color: white;
+	font-size: 20px;
+	}
+
+#negyedik {
+	background-color: white;
+	color: #800080;
+	}
+
+#otodik {
+	background-color: white;
+	font-weight: bold;
+	}
+
+#hatodik {
+	background-color: white;
+	font-family: cursive;
+	}
+
+#utolso {
+	background-color: white;
+	text-shadow: 2px 2px 5px #333333;
+	}

@@ -1,0 +1,5 @@
+id;név;magasság;tömeg
+1;Natasa;162;59
+2;Ica;168;60
+3;Kata;172;65
+4;Zsuzsi;170;82

@@ -1,0 +1,713 @@
+---------------------------------------------------------------------------------------------------------------------------
+Router route tables and running-config
+---------------------------------------------------------------------------------------------------------------------------
+RRaktar(config)#do show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+* - candidate default, U - per-user static route, o - ODR
+P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+8.0.0.0/30 is subnetted, 1 subnets
+S 8.8.8.0/30 is directly connected, Serial0/0/0
+9.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C 9.9.9.0/30 is directly connected, Serial0/0/0
+L 9.9.9.1/32 is directly connected, Serial0/0/0
+192.168.50.0/24 is variably subnetted, 4 subnets, 2 masks
+C 192.168.50.0/27 is directly connected, GigabitEthernet0/0
+L 192.168.50.1/32 is directly connected, GigabitEthernet0/0
+S 192.168.50.64/27 is directly connected, Serial0/0/0
+S 192.168.50.128/27 is directly connected, Serial0/0/0
+---------------------------------------------------------------------------------------------------------------------------
+RRaktar(config)# do show running-config
+Building configuration...
+
+Current configuration : 1307 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname RRaktar
+!
+!
+!
+enable secret 5 $1$mERr$DzAAKnSDFx1KMB6ncJIZh.
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+username rendszer secret 5 $1$mERr$Xwxi.91ci7SyWyNJ/rZra1
+!
+!
+license udi pid CISCO2911/K9 sn FTX152459H8-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+ip domain-name doli.local
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ip address 192.168.50.1 255.255.255.224
+duplex auto
+speed auto
+!
+interface GigabitEthernet0/1
+no ip address
+duplex auto
+speed auto
+shutdown
+!
+interface GigabitEthernet0/2
+no ip address
+duplex auto
+speed auto
+shutdown
+!
+interface Serial0/0/0
+ip address 9.9.9.1 255.255.255.252
+clock rate 2000000
+!
+interface Serial0/0/1
+no ip address
+clock rate 2000000
+shutdown
+!
+interface Vlan1
+no ip address
+shutdown
+!
+ip classless
+ip route 192.168.50.64 255.255.255.224 Serial0/0/0 
+ip route 8.8.8.0 255.255.255.252 Serial0/0/0 
+ip route 192.168.50.128 255.255.255.224 Serial0/0/0 
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^CFrantal Attila^C
+!
+!
+!
+!
+!
+line con 0
+password 7 08075E4F070D041B
+login
+!
+line aux 0
+!
+line vty 0 4
+login local
+transport input ssh
+line vty 5 15
+password 7 082543420E161F1606
+login
+!
+!
+!
+end
+---------------------------------------------------------------------------------------------------------------------------
+
+RKozpont(config)#do show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+* - candidate default, U - per-user static route, o - ODR
+P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+8.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C 8.8.8.0/30 is directly connected, Serial0/0/1
+L 8.8.8.1/32 is directly connected, Serial0/0/1
+9.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C 9.9.9.0/30 is directly connected, Serial0/0/0
+L 9.9.9.2/32 is directly connected, Serial0/0/0
+192.168.50.0/24 is variably subnetted, 4 subnets, 2 masks
+S 192.168.50.0/27 is directly connected, Serial0/0/0
+C 192.168.50.64/27 is directly connected, GigabitEthernet0/0
+L 192.168.50.65/32 is directly connected, GigabitEthernet0/0
+S 192.168.50.128/27 is directly connected, Serial0/0/1
+
+---------------------------------------------------------------------------------------------------------------------------
+RKozpont(config)#do show running-config
+Building configuration...
+
+Current configuration : 1233 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname RKozpont
+!
+!
+!
+enable secret 5 $1$mERr$DzAAKnSDFx1KMB6ncJIZh.
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+username rendszer secret 5 $1$mERr$Xwxi.91ci7SyWyNJ/rZra1
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524UH6G-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name doli.local
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ip address 192.168.50.65 255.255.255.224
+duplex auto
+speed auto
+!
+interface GigabitEthernet0/1
+no ip address
+duplex auto
+speed auto
+shutdown
+!
+interface GigabitEthernet0/2
+no ip address
+duplex auto
+speed auto
+shutdown
+!
+interface Serial0/0/0
+ip address 9.9.9.2 255.255.255.252
+!
+interface Serial0/0/1
+ip address 8.8.8.1 255.255.255.252
+clock rate 2000000
+!
+interface Vlan1
+no ip address
+shutdown
+!
+ip classless
+ip route 192.168.50.0 255.255.255.224 Serial0/0/0 
+ip route 192.168.50.128 255.255.255.224 Serial0/0/1 
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^CFrantal Attila^C
+!
+!
+!
+!
+!
+line con 0
+password 7 08075E4F070D041B
+login
+!
+line aux 0
+!
+line vty 0 4
+login local
+transport input ssh
+line vty 5 15
+password 7 082543420E161F1606
+login
+!
+!
+!
+end
+---------------------------------------------------------------------------------------------------------------------------
+
+RKonyveles(config)#do show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+* - candidate default, U - per-user static route, o - ODR
+P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+8.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C 8.8.8.0/30 is directly connected, Serial0/0/1
+L 8.8.8.2/32 is directly connected, Serial0/0/1
+9.0.0.0/30 is subnetted, 1 subnets
+S 9.9.9.0/30 is directly connected, Serial0/0/1
+192.168.50.0/24 is variably subnetted, 4 subnets, 2 masks
+S 192.168.50.0/27 is directly connected, Serial0/0/1
+S 192.168.50.64/27 is directly connected, Serial0/0/1
+C 192.168.50.128/27 is directly connected, GigabitEthernet0/0
+L 192.168.50.129/32 is directly connected, GigabitEthernet0/0
+
+---------------------------------------------------------------------------------------------------------------------------
+
+
+RKonyveles(config)#do show running-config
+Building configuration...
+
+Current configuration : 1266 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname RKonyveles
+!
+!
+!
+enable secret 5 $1$mERr$DzAAKnSDFx1KMB6ncJIZh.
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+username rendszer secret 5 $1$mERr$Xwxi.91ci7SyWyNJ/rZra1
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524JYP9-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name doli.local
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ip address 192.168.50.129 255.255.255.224
+duplex auto
+speed auto
+!
+interface GigabitEthernet0/1
+no ip address
+duplex auto
+speed auto
+shutdown
+!
+interface GigabitEthernet0/2
+no ip address
+duplex auto
+speed auto
+shutdown
+!
+interface Serial0/0/0
+no ip address
+clock rate 2000000
+shutdown
+!
+interface Serial0/0/1
+ip address 8.8.8.2 255.255.255.252
+!
+interface Vlan1
+no ip address
+shutdown
+!
+ip classless
+ip route 192.168.50.64 255.255.255.224 Serial0/0/1 
+ip route 9.9.9.0 255.255.255.252 Serial0/0/1 
+ip route 192.168.50.0 255.255.255.224 Serial0/0/1 
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^CFrantal Attila^C
+!
+!
+!
+!
+!
+line con 0
+password 7 08075E4F070D041B
+login
+!
+line aux 0
+!
+line vty 0 4
+login local
+transport input ssh
+line vty 5 15
+password 7 0800585A001504
+login
+!
+!
+!
+end
+
+---------------------------------------------------------------------------------------------------------------------------
+Switch running-config-ok
+---------------------------------------------------------------------------------------------------------------------------
+SRaktar(config)#do show running-config
+Building configuration...
+
+Current configuration : 1336 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SRaktar
+!
+enable secret 5 $1$mERr$DzAAKnSDFx1KMB6ncJIZh.
+!
+!
+!
+ip domain-name doli.local
+!
+username rendszer secret 5 $1$mERr$Xwxi.91ci7SyWyNJ/rZra1
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+no ip address
+shutdown
+!
+banner motd ^CFrantal Attila^C
+!
+!
+!
+line con 0
+password 7 08075E4F070D041B
+login
+!
+line vty 0 4
+login local
+transport input ssh
+line vty 5 15
+password 7 082543420E161F1606
+login
+!
+!
+!
+!
+end
+---------------------------------------------------------------------------------------------------------------------------
+
+SKozpont(config)#do show running-config
+Building configuration...
+
+Current configuration : 1357 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SKozpont
+!
+enable secret 5 $1$mERr$DzAAKnSDFx1KMB6ncJIZh.
+!
+!
+!
+no ip domain-lookup
+ip domain-name doli.local
+!
+username rendszer secret 5 $1$mERr$Xwxi.91ci7SyWyNJ/rZra1
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+no ip address
+shutdown
+!
+banner motd ^CFrantal Attila^C
+!
+!
+!
+line con 0
+password 7 08075E4F070D041B
+login
+!
+line vty 0 4
+login local
+transport input ssh
+line vty 5 15
+password 7 082543420E161F1606
+login
+!
+!
+!
+!
+end
+---------------------------------------------------------------------------------------------------------------------------
+
+SKonyveles(config)#do show running-config
+Building configuration...
+
+Current configuration : 1339 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SKonyveles
+!
+enable secret 5 $1$mERr$DzAAKnSDFx1KMB6ncJIZh.
+!
+!
+!
+ip domain-name doli.local
+!
+username rendszer secret 5 $1$mERr$Xwxi.91ci7SyWyNJ/rZra1
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+no ip address
+shutdown
+!
+banner motd ^CFrantal Attila^C
+!
+!
+!
+line con 0
+password 7 08075E4F070D041B
+login
+!
+line vty 0 4
+login local
+transport input ssh
+line vty 5 15
+password 7 082543420E161F1606
+login
+!
+!
+!
+end

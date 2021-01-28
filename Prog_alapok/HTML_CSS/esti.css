@@ -1,0 +1,79 @@
+.header {
+	text-align: center;
+	font-family: helvetica sans-serif;
+}
+
+.title h1 {
+	margin-top: 16%;
+	text-shadow: 5px 5px 5px white;
+	color: black;
+}
+
+.header img {
+	padding-top: 10%;
+}
+
+#description {
+	margin-top: 5%;
+}
+
+.first {
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+
+.first h5 {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.left img {
+	max-width: 100%;
+	height: auto;
+	margin: 3% 0% 3% 0%;
+}
+
+.middle p {
+	padding: 4px;
+	text-align: justify;
+	text-indent: 40px;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+
+#entrance {
+	margin-left: 1%;
+}
+
+#students {
+	margin-right: 1%;
+	border-radius: 50%;
+}
+
+#corridor {
+	margin-left: 1%;
+	border-radius: 50%;
+}
+
+.menuk {
+	border-top: 1px solid white;
+}
+
+.linkBox {
+	margin-top: 16%;
+	text-align: center;
+	font-size: 16pt;
+}
+
+#menu {
+	margin-left: 10px;
+}
+
+.footer {
+	margin: 2% 0% 0% 0%;
+}
+
+a {
+	color: white;
+}
+

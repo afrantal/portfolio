@@ -1,0 +1,98 @@
+/*Frantal Attila, 2020.11.21 , szoft I/1/E*/
+
+body {
+	background-image: url("hajo.png") , url("hajo.png");
+	background-repeat: repeat-y, repeat-y;
+	background-position: left top, right top;
+	background-attachment:  fixed , fixed;
+	background-size: 360px 360px , 360px 360px;
+	background-color: #ffffcc;
+}
+
+div {
+	position: fixed;
+	display: bolck-inline;
+	width:  815px;
+	height: 115px;
+	margin-top: -130px;
+	margin-left: 340px;
+	background-image: url("hajo2.jpg");
+	background-size: 120px 120px;
+}
+
+h1 {
+	text-align: center;
+	font-family: arial;
+	color: navy;
+	text-decoration: underline;
+	margin-top: 130px;
+}
+
+
+ul#menu {
+	list-style-type: none;
+	margin: 0;
+	text-align: center;
+}
+
+ul#menu li {
+	display: inline;
+	background-color: lightgrey;
+	font-weight: bold;
+	padding: 10px;
+	font-size: 20px;
+	margin: 0px 2px 0px 0px;
+}
+
+ul#menu li:hover {
+	background-color: black;
+}
+
+ul#menu li a {
+	text-decoration: none;
+	color: black;
+}
+
+ul#menu li:hover a {
+	color: white;
+}
+
+p {
+	width: 650px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 18px;
+	background-color: #ffff99;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	text-align: justify;
+}
+
+h2 {
+	text-align: center;
+	font-style: italic;
+	text-shadow: 5px 5px 3px #555555;
+	padding-top: 10px;
+}
+
+a.back {
+	margin-left: 1000px;
+}
+
+span {
+	font-size: 26px;
+	color: red;
+	font-weight: bold;
+	text-decoration: underline;
+	font-family: Century Gothic;
+}
+
+p#wk {
+	text-align: center;
+}
+
+p a#wiki {
+	font-size: 26px;
+}

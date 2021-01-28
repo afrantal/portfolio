@@ -1,0 +1,24 @@
+/*Frantal Attila, 2020.11.12 , szoft1 esti , CSS feladat: 0301*/
+body{
+padding-left: 50px;
+}
+
+h1{
+color: red;
+}
+
+h2{
+color: green;
+}
+
+p{
+width: 400px;
+}
+
+.hcs{
+text-decoration: overline;
+}
+
+.kek {
+color: blue;
+}
